@@ -1,0 +1,12 @@
+172.67.73.39
+104.26.5.10
+104.26.4.10
+cdn.onlymega.com
+proxy-custtest.onlymega.com
+custtest.onlymega.com
+app.onlymega.com
+www.onlymega.com
+mail.onlymega.com
+support.onlymega.com
+onlymega.com
+static.onlymega.com

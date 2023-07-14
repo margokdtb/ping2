@@ -1,8 +1,31 @@
 PANDUAN
-1. install subdomainfinder
-2. Install bugscanner
-3. copas ke storage
-5 jalankan termux
+1. install Subfinder
+https://github.com/projectdiscovery/subfinder#installation
 
- cd /sdcard/ping2
+2. Install bugscanner
+https://github.com/aztecrabbit/bugscanner-go
+
+Atau
+
+CARA INSTALL :
+jalankan termux 
+
+pkg update && pkg upgrade
+pkg install python
+pkg install python-pip
+pip install requests loguru multithreading bugscanner
+pkg install git
+git clone https://github.com/JagadBumi/subfinder
+cd subfinder
+mv subfinder ~/../usr/bin
+chmod +x ~/../usr/bin/subfinder
+clear 
+
+
+3 jalankan termux
+cd /sdcard
+git clone https://github.com/margokdtb/ping2
+
+
+ cd /ping2
  python mulai.py

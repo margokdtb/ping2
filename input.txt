@@ -1,0 +1,12 @@
+app.onlymega.com:443              HTTP/1.1 200 OK -- Server: cloudflare
+support.onlymega.com:443          HTTP/1.1 200 OK -- Server: cloudflare
+104.26.4.10:443                   HTTP/1.1 200 OK -- Server: cloudflare
+static.onlymega.com:443           HTTP/1.1 200 OK -- Server: cloudflare
+cdn.onlymega.com:443              HTTP/1.1 200 OK -- Server: cloudflare
+www.onlymega.com:443              HTTP/1.1 200 OK -- Server: cloudflare
+onlymega.com:443                  HTTP/1.1 200 OK -- Server: cloudflare
+172.67.73.39:443                  HTTP/1.1 200 OK -- Server: cloudflare
+custtest.onlymega.com:443         HTTP/1.1 200 OK -- Server: cloudflare
+proxy-custtest.onlymega.com:443   HTTP/1.1 200 OK -- Server: cloudflare
+104.26.5.10:443                   HTTP/1.1 200 OK -- Server: cloudflare
+mail.onlymega.com:443             HTTP/1.1 200 OK -- Server: cloudflare

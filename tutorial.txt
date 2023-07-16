@@ -1,31 +1,41 @@
-PANDUAN
-1. install Subfinder
+#SUMBER
+1. Subfinder
 https://github.com/projectdiscovery/subfinder#installation
-
-2. Install bugscanner
+2. bugscanner ws
 https://github.com/aztecrabbit/bugscanner-go
+3 bugsacanner ssl
+https://github.com/aztecrabbit/bugscanner
 
-Atau
-
-CARA INSTALL :
+#CARA INSTALL :
 jalankan termux 
 
 pkg update && pkg upgrade
 pkg install python
-pkg install python-pip
-pip install requests loguru multithreading bugscanner
+pkg install python-pip bugscanner
+pip install tqdm subprocess ping3
+pip install requests loguru multithreading
 pkg install git
+pkg install golang
+
 git clone https://github.com/JagadBumi/subfinder
 cd subfinder
 mv subfinder ~/../usr/bin
 chmod +x ~/../usr/bin/subfinder
+go install -v github.com/aztecrabbit/bugscanner-go@latest
 clear 
 
 
-3 jalankan termux
+cd
 cd /sdcard
 git clone https://github.com/margokdtb/ping2
+cd
 
+MULAI
+ 
+Run
+cd
+cd /sdcard/ping2/
+python go.py
+ 
+ 
 
- cd /ping2
- python mulai.py

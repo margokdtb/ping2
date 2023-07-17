@@ -49,8 +49,11 @@ def run_file(file_number):
 
 while True:
     display_menu()
-    choice = int(input("Masukkan pilihan (0-9): "))
-    run_file(choice)
-    if choice == 0:
-        break
-    input("Tekan enter untuk melanjutkan...")
+    try:
+        choice = int(input("Masukkan pilihan (0-9): "))
+        run_file(choice)
+        if choice == 0:
+            break
+        input("Tekan enter untuk melanjutkan...")
+    except ValueError:
+        print("Masukkan harus berupa angka! Silakan coba lagi.")

@@ -1,10 +1,7 @@
-#menjalankan direc
 import os
-#os.system("python 4.py" )
-
-
 import requests
 import concurrent.futures
+import threading
 
 def clear_file():
     with open("hasil_cdnssl.txt", "w") as file:
@@ -33,7 +30,7 @@ def scan_cdn_ssl(item):
     except requests.exceptions.RequestException:
         result = "{}: not connect".format(item)
     
-    return result
+    print(result)
 
 
 def main():
@@ -41,12 +38,14 @@ def main():
     with open("hasil2_direct.txt", "r") as file:
         data = [line.strip() for line in file]
 
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        futures = [executor.submit(scan_cdn_ssl, item) for item in data]
+    threads = []
+    for item in data:
+        thread = threading.Thread(target=scan_cdn_ssl, args=(item,))
+        thread.start()
+        threads.append(thread)
 
-        for future in concurrent.futures.as_completed(futures):
-            result = future.result()
-            print(result)
+    for thread in threads:
+        thread.join()
 
 
 if __name__ == "__main__":
@@ -54,5 +53,5 @@ if __name__ == "__main__":
    
 print("\n\n Hasil telah disimpan di file hasil_cdnssl.txt \n")
 
-#menjalankan ping
-os.system("python ping_sslcdn.py" )
+# Menjalankan ping
+os.system("python ping_sslcdn.py")

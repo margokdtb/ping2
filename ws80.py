@@ -1,5 +1,5 @@
 import os
-os.system("python 4.py" )
+#os.system("python 4.py" )
 
 filename = "hasil_websocket80.txt"
 

@@ -1,5 +1,5 @@
 import os
-os.system("python 4.py" )
+#os.system("python 4.py" )
 
 #import os
 import requests

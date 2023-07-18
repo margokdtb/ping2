@@ -37,7 +37,7 @@ def run_file(file_number):
     elif file_number == 7:
         os.system("python3 ws80.py")
     elif file_number == 8:
-        os.system("python3 cdnssl1.py")    
+        os.system("python3 cdn1.py")    
     elif file_number == 9:
         os.system("python3 datalama.py")    
             

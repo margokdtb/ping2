@@ -17,6 +17,7 @@ def send_request(host):
     request = "GET wss://api.myxl.xlaxiata.co.id/ HTTP/1.1\r\n" \
               f"Host: {host}\r\n" \
               "Connection: Upgrade\r\n" \
+              "User-Agent: [ua]\r\n" \
               "Upgrade: websocket\r\n\r\n"
 
     # Membuat koneksi socket ke server

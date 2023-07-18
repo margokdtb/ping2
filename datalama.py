@@ -1,5 +1,6 @@
 input_file = 'input_lama.txt'
 output_file = 'subdomain.txt'
+print("\n\n Silakan isi file input_lama.txt terlebih dahulu. \n\n")
 
 konfirmasi = input("Apakah Anda sudah mengisi file input_lama.txt? (y/n) ")
 

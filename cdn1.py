@@ -1,10 +1,12 @@
+print("\n CEK HOST SSL CDN PORT 443 \n")
+
 import requests
 import re
 import concurrent.futures
 
 def check_ssl_cdn(host):
     if re.match(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", host):
-        print(f"Sumber {host} berupa IP address. Diabaikan.")
+        print(f"{host} berupa IP address. Diabaikan.")
         return ""
         
     try:
@@ -23,9 +25,9 @@ def check_ssl_cdn(host):
         return ""
     except requests.exceptions.RequestException as e:
         if isinstance(e, requests.exceptions.ConnectionError) and 'NameResolutionError' in str(e):
-            print(f"Tidak dapat mengakses host {host}. Diabaikan.")
-        else:
-            print(f"Terjadi kesalahan pada {host}: {e}")
+            print(f"{host} Tidak dapat mengakses host . Diabaikan.")
+        else:         
+            print(f"{host} SSL CDN Tidak Valid")
         return ""
 
 # List host yang akan diperiksa
@@ -45,8 +47,8 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
 with open('hasil_cdnssl.txt', 'w') as file:
     file.writelines(results)
 
-print("Proses selesai. Hasil tersimpan di cdn1.txt")
+print("\n Proses selesai. Hasil tersimpan di hasil_cdnssl.txt \n")
 
-# Menjalankan ping
+# Menjalankan Ping 
 import os
 os.system("python ping_sslcdn.py")

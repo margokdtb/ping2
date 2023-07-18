@@ -1,3 +1,5 @@
+print("\n CEK HOST WEBSOCKET PORT 80 \n")
+
 import os
 #os.system("python 4.py" )
 

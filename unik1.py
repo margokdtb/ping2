@@ -2,7 +2,7 @@ import socket
 import time
 
 # Mengatur waktu timeout menjadi 5 detik
-socket.setdefaulttimeout(5)
+socket.setdefaulttimeout(3)
 
 with open('subdomain2.txt', 'r') as file:
     hostnames = file.read().splitlines()

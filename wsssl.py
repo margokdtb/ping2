@@ -1,25 +1,24 @@
 import requests
-import threading
+from concurrent.futures import ThreadPoolExecutor
 
-def check_cloudflare_ssl(url, results):
+def check_cloudflare_ssl(url):
     try:
-        response = requests.get(f"http://{url}", timeout=5)
+        response = requests.get(f"http://{url}", timeout=2 )
 
         if "cloudflare" in response.headers.get("server", "").lower():
-            results.append(url)
-            print(f"{url} - Cloudflare SSL detected!")
+            print(f"{url} - Cloudflare SSL")
+            return url
         else:
-            print(f"{url} - No Cloudflare SSL detected.")
+            return None
     except requests.exceptions.Timeout:
-        print(f"{url} - Timeout occurred.")
+        print(f"{url} - Timeout")
+        return None
     except requests.exceptions.RequestException as e:
-        print(f"{url} - Request error occurred: {e}")
+        print(f"{url} - Request error")
+        return None
     except Exception as e:
-        print(f"{url} - Error occurred: {e}")
-
-def process_host(url_list, results):
-    for url in url_list:
-        check_cloudflare_ssl(url, results)
+        print(f"{url} - Error")
+        return None
 
 # Membaca file hasil2_direct.txt
 with open("hasil2_direct.txt", "r") as file:
@@ -31,21 +30,15 @@ hosts = [host.strip() for host in hosts]
 # Menentukan jumlah thread yang akan digunakan
 num_threads = 4
 
-# Memecah list host menjadi jumlah thread yang sesuai
+# Membagi list host menjadi bagian sesuai jumlah thread
 chunks = [hosts[i:i + num_threads] for i in range(0, len(hosts), num_threads)]
 
-# Membuat thread untuk setiap chunk host
-threads = []
 results = []
-for chunk in chunks:
-    thread = threading.Thread(target=process_host, args=(chunk, results))
-    threads.append(thread)
-    thread.start()
 
-# Menampilkan proses pemindaian
-for thread in threads:
-    thread.join()
-    print("Thread finished execution.")
+with ThreadPoolExecutor(max_workers=num_threads) as executor:
+    # Mengeksekusi fungsi check_cloudflare_ssl secara concurrent
+    for chunk in chunks:
+        results += [result for result in executor.map(check_cloudflare_ssl, chunk) if result is not None]
 
 # Menyimpan hasil di file hasil_cdnssl.txt
 with open("hasil_cdnssl.txt", "w") as file:
@@ -56,6 +49,6 @@ print("Scan completed!")
 
 print("\n Hasil tersimpan di hasil_cdnssl.txt \n")
 
-# Menjalankan Ping 
+# Menjalankan Ping
 import os
 os.system("python ping_sslcdn.py")

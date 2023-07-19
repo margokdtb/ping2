@@ -8,7 +8,8 @@ domain = input("Masukan Domain: ")
 
 os.system(f"subfinder -d {domain} -o subdomain2.txt")
 
-print("\n\n  Data disimpan di subdomain2.txt \n\n ")
 
-import os
-os.system("python unik1.py")
+# import os
+os.system("python unik2.py")
+
+print("\n\n  Data disimpan di subdomain.txt \n\n ")

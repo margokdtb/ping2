@@ -1,12 +1,13 @@
 import requests
 from concurrent.futures import ThreadPoolExecutor
+from colorama import Fore, Style
 
 def check_cloudflare_ssl(url):
     try:
         response = requests.get(f"http://{url}", timeout=2 )
 
         if "cloudflare" in response.headers.get("server", "").lower():
-            print(f"{url} - Cloudflare SSL")
+            print(f"{Fore.GREEN}{url} - Cloudflare SSL{Style.RESET_ALL}")
             return url
         else:
             return None

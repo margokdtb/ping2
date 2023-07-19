@@ -1,17 +1,13 @@
-print("\n CEK HOST WEBSOCKET PORT 80 \n")
-
 import os
-#os.system("python 4.py" )
-
-filename = "hasil_websocket80.txt"
-
-# Membuka file dalam mode write dan mengosongkan isinya
-with open(filename, "w") as file:
-    file.write("")
-
 import socket
 import select
 from concurrent.futures import ThreadPoolExecutor
+from colorama import Fore, Style
+
+with open("hasil_websocket80.txt", "w") as file:
+    file.write("")
+
+# print("Isi file hasil_websocket80 berhasil dibersihkan.")
 
 def send_request(host):
     ip = socket.gethostbyname(host)
@@ -39,8 +35,8 @@ def send_request(host):
             response = sock.recv(4096).decode()
             status = "OK" if "HTTP/1.1 200" in response else "Gagal"
 
-            # Mencetak hasil dalam format host/ip status server
-            result = f"{host} {status}"
+            # Mencetak hasil dalam format host/ip status server (berwarna hijau jika OK)
+            result = f"{host} {Fore.GREEN if status == 'OK' else ''}{status}{Style.RESET_ALL}"
             print(result)
 
             # Memeriksa apakah hasil statusnya OK dan menyimpan host/IP ke dalam file jika ya

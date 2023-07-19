@@ -16,7 +16,7 @@ def display_menu():
     print("6. Ping SNI  ")
     print("7. Scan Websoket v2 ")
     print("8. Scan SSL CDN v2 ")
-    print("9. Data lama ")
+    print("9. Data lama (isi input_lama.txt) ")
     
     print("0. Keluar")
 

@@ -15,11 +15,11 @@ def send_get_request(host, port):
         conn = http.client.HTTPConnection(host, port, timeout=3)
         
         headers = {"Host": "api.myxl.xlaxiata.co.id", "Connection": "Keep-Alive",
-                   "User-Agent": "[ua]", "Upgrade": "websocket"}
+                   "Upgrade": "websocket"}
         
         start_time = time.time()
         
-        conn.request("GET", "/", headers=headers)
+        conn.request("HEAD", "/", headers=headers)
         
         res = conn.getresponse()
         

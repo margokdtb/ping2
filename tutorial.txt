@@ -8,7 +8,7 @@ https://github.com/aztecrabbit/bugscanner
 
 #CARA INSTALL :
 jalankan termux 
-
+termux-setup-storage
 pkg update && pkg upgrade
 pkg install python
 pkg install python-pip bugscanner

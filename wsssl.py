@@ -2,6 +2,8 @@ import requests
 from concurrent.futures import ThreadPoolExecutor
 from colorama import Fore, Style
 
+print("\n\n SCAN WS SSL PORT 443 \n")
+
 def check_cloudflare_ssl(url):
     try:
         response = requests.get(f"http://{url}", timeout=2 )
@@ -46,9 +48,9 @@ with open("hasil_cdnssl.txt", "w") as file:
     for result in results:
         file.write(f"{result}\n")
 
-print("Scan completed!")
+# print("Scan completed!")
 
-print("\n Hasil tersimpan di hasil_cdnssl.txt \n")
+#print("\n Hasil tersimpan di hasil_cdnssl.txt \n")
 
 # Menjalankan Ping
 import os

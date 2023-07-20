@@ -9,13 +9,12 @@ import os
 def display_menu():
     print("Menu:")
     print("1. Cari Sub Domain (Koneksi Internet) ")
-    print("2. Cek Cloudflare (Koneksi paket data)")
-    print("3. Scan Cloudflare Port 80 ")
-    print("4. Scan Cloudflare SSL Port 443 ")
-    print("5. Scan SNI  ")
-    print("6. Ping SNI  ")
+    print("2. Scan WS dan WS SSL (Koneksi paket data)")
     
-    print("7. Data lama (isi input_lama.txt) ")
+    print("3. Scan SNI  ")
+    print("4. Ping SNI  ")
+    
+    print("5. Data lama (isi input_lama.txt) ")
     
     print("0. Keluar")
 
@@ -23,19 +22,15 @@ def run_file(file_number):
     if file_number == 1:
         os.system("python3 1.py")
     elif file_number == 2:
-        os.system("python3 4.py")
-    elif file_number == 3:
-        os.system("python3 ws803.py")
-    elif file_number == 4:
-        os.system("python3 wsssl.py")    
+        os.system("python3 ws.py")
     
         
-    elif file_number == 5:
+    elif file_number == 3:
         os.system("python3 sni1.py")
-    elif file_number == 6:
+    elif file_number == 4:
         os.system("python3 sni2.py")
        
-    elif file_number == 7:
+    elif file_number == 5:
         os.system("python3 datalama.py")    
             
         

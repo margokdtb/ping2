@@ -4,6 +4,8 @@ import socket
 import colorama
 from colorama import Fore, Style
 
+print("\n\n SCAN WS PORT 80 \n")
+
 def clear_file():
     with open("hasil_websocket80.txt", "w") as file:
         file.write("")
@@ -58,7 +60,7 @@ clear_file()  # Membersihkan isi file hasil_ws80.txt
 for host in hosts:
     send_get_request(host, 80)
   
-print("\n\nHasil telah disimpan di file hasil_ws80.txt\n")
+# print("\n\nHasil telah disimpan di file hasil_ws80.txt\n")
 
 # Menjalankan Ping
 import os

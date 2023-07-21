@@ -1,9 +1,9 @@
 import re
 
-print("\n\n Silakan isi file input_lama.txt terlebih dahulu. \n\n")
+print("\n\n Silakan isi file sumber_pcapdroid.txt terlebih dahulu. \n\n")
 
 # Konfirmasi dari pengguna
-konfirmasi = input("Apakah Anda sudah mengisi file input_lama.txt? (y/n) ")
+konfirmasi = input("Apakah Anda sudah mengisi file sumber_pcapdroid.txt? (y/n) ")
 
 if konfirmasi.lower() == 'y':
     # Membaca file input_lama.txt dan mengambil subdomain
@@ -22,4 +22,4 @@ if konfirmasi.lower() == 'y':
     print('Data telah disimpan di subdomain.txt')
 
 else:
-    print("Pastikan untuk mengisi file input_lama.txt sebelum menjalankan program ini.")
+    print("Pastikan untuk mengisi file sumber_pcapdroid.txt sebelum menjalankan program ini.")

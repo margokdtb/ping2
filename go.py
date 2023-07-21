@@ -14,8 +14,8 @@ def display_menu():
     print("3. Scan SNI  ")
     print("4. Ping SNI  ")
     
-    print("5. Sumber PCAPdroid (isi input_lama.txt) ")
-    print("6. Sumber KNOCK (isi sumberlain.txt) ")
+    print("5. Sumber PCAPdroid (isi sumber_pcapdroid.txt) ")
+    print("6. Sumber KNOCK (isi sumber_knock.txt) ")
     
     print("0. Keluar")
 

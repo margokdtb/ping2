@@ -1,7 +1,7 @@
 import json
 
 # Load data from sumberlain.txt
-with open("sumberlain.txt", "r") as file:
+with open("sumber_knock.txt", "r") as file:
     data = json.load(file)
 
 # Create empty lists for hosts and IPs

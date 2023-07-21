@@ -2,6 +2,7 @@ print("\n\n SCAN WS PORT 80 \n")
 
 import http.client
 
+
 # Baca file hasil2_direct.txt
 with open('hasil2_direct.txt', 'r') as file:
     sumbernya = file.read().splitlines()
@@ -32,10 +33,10 @@ for sumber in sumbernya:
         status_message = response.reason
 
         # Cetak status respon
-        print('Sumber Koneksi:', sumber)
-        print('Status:', status)
-        print('Status Message:', status_message)
-        print()
+        print(sumber, ' -' , status, '',status_message )
+        #print('Status:', status)
+        #print('Status Message:', status_message)
+        #print()
 
         # Cek jika status adalah 200
         if status == 200:
@@ -54,9 +55,9 @@ for sumber in sumbernya:
 
     except TimeoutError as e:
         # Tangani kesalahan timeout
-        print('Koneksi timeout:', str(e))
-        print('Mengabaikan sumber koneksi:', sumber)
-        print()
+        #print('Koneksi timeout:', str(e))
+        #print('Mengabaikan sumber koneksi:', sumber)
+        print(sumber, '- timeout' )
         continue
 
 # Tutup file hasil_cdnssl.txt

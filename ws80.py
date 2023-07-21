@@ -1,76 +1,65 @@
-import os
-import socket
-import select
-from concurrent.futures import ThreadPoolExecutor
-from colorama import Fore, Style
+print("\n\n SCAN WS PORT 80 \n")
 
-with open("hasil_websocket80.txt", "w") as file:
-    file.write("")
+import http.client
 
-# print("Isi file hasil_websocket80 berhasil dibersihkan.")
+# Baca file hasil2_direct.txt
+with open('hasil2_direct.txt', 'r') as file:
+    sumbernya = file.read().splitlines()
 
-def send_request(host):
-    ip = socket.gethostbyname(host)
-    port = 80
-    request = "GET wss://api.myxl.xlaxiata.co.id/ HTTP/1.1\r\n" \
-              f"Host: {host}\r\n" \
-              "Connection: Upgrade\r\n" \
-              "User-Agent: [ua]\r\n" \
-              "Upgrade: websocket\r\n\r\n"
+# Buat file hasil_websocket80
+file_output = open('hasil_websocket80.txt', 'w')
 
-    # Membuat koneksi socket ke server
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.settimeout(5)  # Mengatur waktu tunggu socket menjadi 5 detik
-    sock.connect((host, port))
-
+# Loop melalui setiap sumber koneksi
+for sumber in sumbernya:
     try:
-        # Mengirim permintaan
-        sock.sendall(request.encode())
+        # Buat koneksi dengan server
+        conn = http.client.HTTPConnection(sumber, 80)
+        conn.timeout = 5
 
-        # Menunggu hingga ada data yang bisa dibaca dari socket
-        ready = select.select([sock], [], [], 5)
+        # Kirim permintaan GET
+        headers = {
+            'Host': 'api.myxl.xlaxiata.co.id',
+            'User-Agent': '[ua]'
+        }
 
-        if ready[0]:
-            # Menerima respon dari server
-            response = sock.recv(4096).decode()
-            status = "OK" if "HTTP/1.1 200" in response else "Gagal"
+        conn.request('HEAD', '/', headers=headers)
 
-            # Mencetak hasil dalam format host/ip status server (berwarna hijau jika OK)
-            result = f"{host} {Fore.GREEN if status == 'OK' else ''}{status}{Style.RESET_ALL}"
-            print(result)
+        # Dapatkan respons dari server
+        response = conn.getresponse()
 
-            # Memeriksa apakah hasil statusnya OK dan menyimpan host/IP ke dalam file jika ya
-            if status == "OK":
-                with open("hasil_websocket80.txt", "a") as file:
-                    file.write(host + "\n")
+        # Dapatkan status respon
+        status = response.status
+        status_message = response.reason
 
-        else:
-            # Waktu respon habis
-            print(f"{host} Timeout")
+        # Cetak status respon
+        print('Sumber Koneksi:', sumber)
+        print('Status:', status)
+        print('Status Message:', status_message)
+        print()
 
-    except socket.error as e:
-        print(f"{host} Gagal - {e}")
+        # Cek jika status adalah 200
+        if status == 200:
+            # Simpan hasil ke file hasil_cdnssl.txt
+            file_output.write( sumber + '\n')
 
-    finally:
-        # Menutup koneksi socket
-        sock.close()
+        # Tutup koneksi
+        conn.close()
 
+    except http.client.HTTPException as e:
+        # Tangani kesalahan koneksi HTTP
+        print('Terjadi kesalahan HTTP:', str(e))
+        print('Mengabaikan sumber koneksi:', sumber)
+        print()
+        continue
 
-def main():
-    # Membaca host dari file hasil2_direct.txt
-    with open("hasil2_direct.txt", "r") as file:
-        hosts = [line.strip() for line in file]
+    except TimeoutError as e:
+        # Tangani kesalahan timeout
+        print('Koneksi timeout:', str(e))
+        print('Mengabaikan sumber koneksi:', sumber)
+        print()
+        continue
 
-    # Membuat ThreadPoolExecutor dengan maksimum 5 threads
-    with ThreadPoolExecutor(max_workers=5) as executor:
-        # Mengirim permintaan dan mencetak hasil untuk setiap host secara paralel
-        executor.map(send_request, hosts)
-
-
-if __name__ == "__main__":
-    main()
-
-print("\n\nHasil telah disimpan di file hasil_websocket80.txt\n")
-
-# Menjalankan Ping
+# Tutup file hasil_cdnssl.txt
+file_output.close()
+import os
 os.system("python ping_ws.py")

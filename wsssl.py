@@ -24,7 +24,7 @@ def check_cloudflare_ssl(url):
         return None
 
 # Membaca file hasil2_direct.txt 
-with open("hasil2_direct.txt", "r") as file:
+with open("hasil_websocket80.txt", "r") as file:
     hosts = file.readlines()
 
 # Menghapus karakter newline pada setiap baris

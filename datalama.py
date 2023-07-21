@@ -7,7 +7,7 @@ konfirmasi = input("Apakah Anda sudah mengisi file sumber_pcapdroid.txt? (y/n) "
 
 if konfirmasi.lower() == 'y':
     # Membaca file input_lama.txt dan mengambil subdomain
-    with open('input_lama.txt', 'r') as file:
+    with open('sumber_pcapdroid.txt', 'r') as file:
         data = file.read()
         subdomains = re.findall(r'\b(?:[A-Za-z0-9]+\.)+[A-Za-z]{2,}\b', data)
     

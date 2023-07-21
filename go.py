@@ -14,7 +14,8 @@ def display_menu():
     print("3. Scan SNI  ")
     print("4. Ping SNI  ")
     
-    print("5. Data lama (isi input_lama.txt) ")
+    print("5. Sumber PCAPdroid (isi input_lama.txt) ")
+    print("6. Sumber KNOCK (isi sumberlain.txt) ")
     
     print("0. Keluar")
 
@@ -32,7 +33,10 @@ def run_file(file_number):
        
     elif file_number == 5:
         os.system("python3 datalama.py")    
-            
+        
+    elif file_number == 6:
+        os.system("python3 sumberlain.py")    
+                   
         
     elif file_number == 0:
         return

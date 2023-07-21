@@ -1,0 +1,346 @@
+{
+    "api.myxl.xlaxiata.co.id": {
+        "domain": "api.myxl.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "api.myxl.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.23.4",
+            "104.18.22.4"
+        ],
+        "code": 200,
+        "server": "cloudflare"
+    },
+    "archives.ult.ext.xlaxiata.co.id": {
+        "domain": "a5f9798c8115d47449e1440e4e88b507-bbeca8d616548aca.elb.ap-southeast-1.amazonaws.com",
+        "alias": [
+            "archives.ult.ext.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "13.213.139.155",
+            "52.221.140.7"
+        ],
+        "code": 502,
+        "server": "nginx/1.23.2"
+    },
+    "bdgnew.srg.ult.ext.xlaxiata.co.id": {
+        "domain": "a62ce8e16e0b74caeaf4e9ce11e1a1a5-507359125215ebef.elb.ap-southeast-1.amazonaws.com",
+        "alias": [
+            "bdgnew.srg.ult.ext.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "13.251.177.103",
+            "54.255.56.207"
+        ],
+        "code": 404,
+        "server": "nginx/1.23.2"
+    },
+    "bdg.ult.ext.xlaxiata.co.id": {
+        "domain": "",
+        "alias": [],
+        "ipaddr": [
+            "18.139.122.131",
+            "13.250.162.153"
+        ],
+        "code": 404,
+        "server": "nginx/1.23.2"
+    },
+    "apigw.srg.ult.ext.xlaxiata.co.id": {
+        "domain": "",
+        "alias": [],
+        "ipaddr": [
+            "54.255.96.115",
+            "3.1.249.36",
+            "52.220.27.241",
+            "18.140.23.29"
+        ],
+        "code": "",
+        "server": ""
+    },
+    "careers.xlaxiata.co.id": {
+        "domain": "RMK10.jobs2web.com",
+        "alias": [
+            "careers.xlaxiata.co.id",
+            "careers.xlaxiata.co.id.cdn.cloudflare.net",
+            "xlaxiata.jobs2web.com"
+        ],
+        "ipaddr": [
+            "20.53.137.97"
+        ],
+        "code": 200,
+        "server": "Apache"
+    },
+    "cms.jkt.ult.ext.xlaxiata.co.id": {
+        "domain": "cms.jkt.ult.ext.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "cms.jkt.ult.ext.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.23.4",
+            "104.18.22.4"
+        ],
+        "code": 403,
+        "server": "cloudflare"
+    },
+    "cms.srg.ult.ext.xlaxiata.co.id": {
+        "domain": "cms.srg.ult.ext.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "cms.srg.ult.ext.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.23.4",
+            "104.18.22.4"
+        ],
+        "code": 403,
+        "server": "cloudflare"
+    },
+    "developer.xlaxiata.co.id": {
+        "domain": "developer.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "developer.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.22.4",
+            "104.18.23.4"
+        ],
+        "code": 200,
+        "server": "cloudflare"
+    },
+    "digital.xlaxiata.co.id": {
+        "domain": "digital.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "digital.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.22.4",
+            "104.18.23.4"
+        ],
+        "code": 404,
+        "server": "cloudflare"
+    },
+    "digitalfleetech.xlaxiata.co.id": {
+        "domain": "awseb-awseb-1wn8dsem5wuod-283152826.us-east-1.elb.amazonaws.com",
+        "alias": [
+            "digitalfleetech.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "52.205.120.170",
+            "52.5.228.205"
+        ],
+        "code": 404,
+        "server": "nginx/1.20.0"
+    },
+    "jkt.ult.ext.xlaxiata.co.id": {
+        "domain": "a5f9798c8115d47449e1440e4e88b507-bbeca8d616548aca.elb.ap-southeast-1.amazonaws.com",
+        "alias": [
+            "jkt.ult.ext.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "13.213.139.155",
+            "52.221.140.7"
+        ],
+        "code": 404,
+        "server": "nginx/1.23.2"
+    },
+    "m.srg.ult.ext.xlaxiata.co.id": {
+        "domain": "",
+        "alias": [],
+        "ipaddr": [
+            "13.251.173.37",
+            "18.139.173.66"
+        ],
+        "code": 200,
+        "server": "nginx/1.23.2"
+    },
+    "masaaktif.xlaxiata.co.id": {
+        "domain": "masaaktif.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "masaaktif.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.22.4",
+            "104.18.23.4"
+        ],
+        "code": 200,
+        "server": "cloudflare"
+    },
+    "provider.xlaxiata.co.id": {
+        "domain": "provider.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "provider.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.22.4",
+            "104.18.23.4"
+        ],
+        "code": 526,
+        "server": "cloudflare"
+    },
+    "proton.srg.ult.ext.xlaxiata.co.id": {
+        "domain": "",
+        "alias": [],
+        "ipaddr": [
+            "18.138.160.179",
+            "18.136.65.154"
+        ],
+        "code": 200,
+        "server": "nginx/1.23.2"
+    },
+    "registrasi.xlaxiata.co.id": {
+        "domain": "registrasi.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "registrasi.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.22.4",
+            "104.18.23.4"
+        ],
+        "code": 200,
+        "server": "cloudflare"
+    },
+    "repo.xlaxiata.co.id": {
+        "domain": "repo.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "repo.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.23.4",
+            "104.18.22.4"
+        ],
+        "code": 200,
+        "server": "cloudflare"
+    },
+    "s.srg.ult.ext.xlaxiata.co.id": {
+        "domain": "",
+        "alias": [],
+        "ipaddr": [
+            "13.214.24.225",
+            "13.250.137.148"
+        ],
+        "code": 502,
+        "server": "nginx/1.23.2"
+    },
+    "sdp.xlaxiata.co.id": {
+        "domain": "sdp.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "sdp.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.23.4",
+            "104.18.22.4"
+        ],
+        "code": 404,
+        "server": "cloudflare"
+    },
+    "spesialuntukmu.xlaxiata.co.id": {
+        "domain": "spesialuntukmu.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "spesialuntukmu.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.22.4",
+            "104.18.23.4"
+        ],
+        "code": 200,
+        "server": "cloudflare"
+    },
+    "staticxl.ext.xlaxiata.co.id": {
+        "domain": "staticxl.ext.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "staticxl.ext.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.23.4",
+            "104.18.22.4"
+        ],
+        "code": 403,
+        "server": "cloudflare"
+    },
+    "prambanan.ult.ext.xlaxiata.co.id": {
+        "domain": "",
+        "alias": [],
+        "ipaddr": [
+            "54.254.55.100",
+            "54.169.112.243",
+            "18.140.10.51"
+        ],
+        "code": "",
+        "server": ""
+    },
+    "vega.xlaxiata.co.id": {
+        "domain": "vega.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "vega.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.22.4",
+            "104.18.23.4"
+        ],
+        "code": 200,
+        "server": "cloudflare"
+    },
+    "vcard.xlaxiata.co.id": {
+        "domain": "vcard.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "vcard.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.23.4",
+            "104.18.22.4"
+        ],
+        "code": 200,
+        "server": "cloudflare"
+    },
+    "www.xlaxiata.co.id": {
+        "domain": "www.xlaxiata.co.id.cdn.cloudflare.net",
+        "alias": [
+            "www.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "104.18.23.4",
+            "104.18.22.4"
+        ],
+        "code": 200,
+        "server": "cloudflare"
+    },
+    "www.digitalfleetech.xlaxiata.co.id": {
+        "domain": "awseb-awseb-1wn8dsem5wuod-283152826.us-east-1.elb.amazonaws.com",
+        "alias": [
+            "www.digitalfleetech.xlaxiata.co.id"
+        ],
+        "ipaddr": [
+            "52.5.228.205",
+            "52.205.120.170"
+        ],
+        "code": 404,
+        "server": "nginx/1.20.0"
+    },
+    "tkg.ult.ext.xlaxiata.co.id": {
+        "domain": "",
+        "alias": [],
+        "ipaddr": [
+            "54.169.112.243",
+            "54.254.55.100",
+            "18.140.10.51"
+        ],
+        "code": "",
+        "server": ""
+    },
+    "registrasirups.xlaxiata.co.id": {
+        "domain": "",
+        "alias": [],
+        "ipaddr": [
+            "112.215.105.127"
+        ],
+        "code": "",
+        "server": ""
+    },
+    "_meta": {
+        "name": "knockpy",
+        "version": "6.1.0",
+        "time_start": 1689909211.1292872,
+        "time_end": 1689909324.0014858,
+        "domain": "xlaxiata.co.id",
+        "wordlist": 10785
+    }
+}

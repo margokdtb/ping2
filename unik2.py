@@ -1,5 +1,5 @@
-import concurrent.futures
 import socket
+import time
 
 datahost = set()
 
@@ -7,13 +7,22 @@ def clear_file(filename):
     with open(filename, 'w') as file:
         file.write('')
 
-# Menghapus isi file subdomain.txt sebelum memulai proses pencarian IP
 clear_file('subdomain.txt')
 
 def get_ip(host):
     try:
+        start_time = time.time()  # Waktu awal sebelum pemanggilan gethostbyname
         ip = socket.gethostbyname(host)
+        end_time = time.time()  # Waktu akhir setelah pemanggilan gethostbyname
+        
+        response_time = end_time - start_time  # Menghitung waktu respons
+        
+        if response_time > 3:
+            raise TimeoutError("Connection timeout")
+        
         return ip
+    except TimeoutError:
+        return None
     except:
         return None
 
@@ -31,8 +40,8 @@ def main():
     with open('subdomain2.txt', 'r') as file:
         hosts = file.read().splitlines()
 
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        executor.map(process_host, hosts)
+    for host in hosts:
+        process_host(host)
 
 if __name__ == '__main__':
     main()

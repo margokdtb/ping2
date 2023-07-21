@@ -16,6 +16,7 @@ def display_menu():
     
     print("5. Sumber PCAPdroid (isi sumber_pcapdroid.txt) ")
     print("6. Sumber KNOCK (isi sumber_knock.txt) ")
+    print("7. Ping Host (isi sumber_host.txt) ")
     
     print("0. Keluar")
 
@@ -35,7 +36,10 @@ def run_file(file_number):
         os.system("python3 datalama.py")    
         
     elif file_number == 6:
-        os.system("python3 sumberlain.py")    
+        os.system("python3 sumberlain.py")   
+ 
+    elif file_number == 7:
+        os.system("python3 ping_server.py")    
                    
         
     elif file_number == 0:

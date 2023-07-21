@@ -1,0 +1,14 @@
+bn1msgr2010706.gateway.messenger.live.com
+apac-webhook.teams.live.com
+emea-webhook.teams.live.com
+bn1msgr2011503.gateway.messenger.live.com
+gateway.messenger.live.com
+bn1msgr1011305.gateway.messenger.live.com
+bn1msgr1011705.gateway.messenger.live.com
+bn1msgr2011105.gateway.messenger.live.com
+bn1msgr1010704.gateway.messenger.live.com
+bn1msgr1011704.gateway.messenger.live.com
+presence.teams.live.com
+baymsg1010710.gateway.messenger.live.com
+bn1msgr1011024.gateway.messenger.live.com
+amer-webhook.teams.live.com

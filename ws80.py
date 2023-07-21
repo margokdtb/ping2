@@ -20,7 +20,8 @@ for sumber in sumbernya:
         # Kirim permintaan GET
         headers = {
             'Host': 'api.myxl.xlaxiata.co.id',
-            'User-Agent': '[ua]'
+            'User-Agent': '[ua]', 
+            'Upgrade': 'websocket'
         }
 
         conn.request('HEAD', '/', headers=headers)

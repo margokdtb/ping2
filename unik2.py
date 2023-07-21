@@ -17,7 +17,7 @@ def get_ip(host):
         
         response_time = end_time - start_time  # Menghitung waktu respons
         
-        if response_time > 3:
+        if response_time > 2:
             raise TimeoutError("Connection timeout")
         
         return ip

@@ -15,7 +15,7 @@ for sumber in sumbernya:
     try:
         # Buat koneksi dengan server
         conn = http.client.HTTPConnection(sumber, 80)
-        conn.timeout = 5
+        conn.timeout = 2
 
         # Kirim permintaan GET
         headers = {

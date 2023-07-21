@@ -15,14 +15,14 @@ if konfirmasi.lower() == 'y':
     unique_hosts = set(subdomains)
 
     # Menyimpan host yang unik dalam file subdomain.txt
-    with open('subdomain2.txt', 'w') as file:
+    with open('subdomain.txt', 'w') as file:
         for host in unique_hosts:
             file.write(host + '\n')
             
     import os
-    os.system("python unik2.py")
+    os.system("python unik3.py")
 
-    print('Data telah disimpan di subdomain.txt')
+    print('\n Data telah disimpan di subdomain.txt')
 
 else:
-    print("Pastikan untuk mengisi file sumber_pcapdroid.txt sebelum menjalankan program ini.")
+    print("\n Pastikan untuk mengisi file sumber_pcapdroid.txt sebelum menjalankan program ini.")

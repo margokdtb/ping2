@@ -27,6 +27,6 @@ with open("subdomain2.txt", "w") as file:
         file.write(ip + "\n")
         
 import os
-os.system("python unik2.py")
+os.system("python unik3.py")
 
 print("\n Processing completed. The results have been saved to subdomain.txt.")

@@ -11,7 +11,7 @@ jalankan termux
 termux-setup-storage
 pkg update && pkg upgrade
 pkg install python
-pkg install python-pip
+pkg install python-pip bugscanner 
 pip install tqdm subprocess ping3
 pip install requests loguru multithreading
 pkg install git 

@@ -41,7 +41,7 @@ def perform_ssl_test(hostname, port=443):
         return None
 
 # Membaca sumber host dari file "hasil2_direct.txt"
-with open("hasil2_direct.txt", "r") as file:
+with open("subdomain.txt", "r") as file:
     hostnames = file.read().splitlines()
 
 # Membuat pool eksekutor untuk multi-threading

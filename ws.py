@@ -10,7 +10,7 @@ print("\n\nHasil telah disimpan di file hasil2_direct.txt\n")
 #import ws80
 #import wsssl
 
-print("\n\n HASIL DISIMPAN : \n") 
+#print("\n\n HASIL DISIMPAN : \n") 
 #print(" - >> hasil_websocket80_ping.txt \n")
 #print(" - >> hasil_cdnssl443_ping.txt \n")
 

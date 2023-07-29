@@ -37,7 +37,7 @@ else:
 
 # Menyimpan hasil host ke file subdomain.txt
 with open("subdomain.txt", "w") as file:
-    file.write(f"Host yang terlibat dalam halaman web {url}:\n")
+    #file.write(f"Host yang terlibat dalam halaman web {url}:\n") 
     for host in hosts:
         file.write(host + "\n")
 

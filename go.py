@@ -1,7 +1,7 @@
 import os
 os.system("clear")
 
-print("\n\n SCAN BUG SSLCDN DAN SNI  \n\n")
+print("\n\n SCAN BUG CDN SSL DAN SNI  \n\n")
 print("\nPowered by margokdtb@gmail.com Juli 2023  \n")
 
 import os
@@ -34,7 +34,7 @@ def run_file(file_number):
         
     elif file_number == 4:
         os.system("python3 ws80.py")
-    
+        os.system("python3 wsssl.py")
         
     elif file_number == 5:
         os.system("python3 sni1.py")

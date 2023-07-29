@@ -9,36 +9,44 @@ import os
 def display_menu():
     print("Menu:")
     print("1. Cari Sub Domain (Koneksi Internet) ")
-    print("2. Scan WS dan WS SSL (Koneksi paket data)")
+    print("2. Pilih File ")
+    print("3. Cek Ws ")
+
+    print("4. Cek port 80 dan 443 (Koneksi paket data)")
     
-    print("3. Scan SNI  ")
-    print("4. Ping SNI  ")
+    print("5. Cek SNI  ")
+    print("6. Ping SNI  ")
     
-    print("5. Sumber PCAPdroid (isi sumber_pcapdroid.txt) ")
-    print("6. Sumber KNOCK (isi sumber_knock.txt) ")
-    print("7. Ping Host (isi sumber_host.txt) ")
+    print("7. Sumber PCAPdroid (isi sumber_pcapdroid.txt) ")
+    print("8. Sumber KNOCK (isi sumber_knock.txt) ")
+    print("9. Ping Host (isi sumber_host.txt) ")
     
     print("0. Keluar")
 
 def run_file(file_number):
     if file_number == 1:
-        os.system("python3 1.py")
+        os.system("python3 subdomain/1.py")
     elif file_number == 2:
+        os.system("python3 pilihfile.py")
+    elif file_number == 3:	
         os.system("python3 ws.py")
+        
+    elif file_number == 4:
+        os.system("python3 ws80.py")
     
         
-    elif file_number == 3:
+    elif file_number == 5:
         os.system("python3 sni1.py")
-    elif file_number == 4:
+    elif file_number == 6:
         os.system("python3 sni2.py")
        
-    elif file_number == 5:
+    elif file_number == 7:
         os.system("python3 datalama.py")    
         
-    elif file_number == 6:
+    elif file_number == 8:
         os.system("python3 sumberlain.py")   
  
-    elif file_number == 7:
+    elif file_number == 9:
         os.system("python3 ping_server.py")    
                    
         

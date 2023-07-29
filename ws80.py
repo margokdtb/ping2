@@ -64,4 +64,4 @@ for sumber in sumbernya:
 # Tutup file hasil_cdnssl.txt
 file_output.close()
 import os
-os.system("python ping_ws.py")
+os.system("python wsssl.py")

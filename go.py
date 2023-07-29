@@ -25,7 +25,7 @@ def display_menu():
 
 def run_file(file_number):
     if file_number == 1:
-        os.system("python3 subdomain/1.py")
+        os.system("python3 1.py")
     elif file_number == 2:
         os.system("python3 pilihfile.py")
     elif file_number == 3:	

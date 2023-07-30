@@ -27,13 +27,13 @@ def send_request(hosts, payload):
                 if status_code == '200' and server_header == 'cloudflare':
                     file.write(result2 + '\n')
 
-                s.send(payload.encode())
+                #s.send(payload.encode())
 
                 s.close()
             except socket.gaierror:
                 print(f'{host} - Invalid hostname')
             except socket.timeout:
-                print(f'{host} - Connection timeout')
+                print(f'{host} - timeout')
 
 hosts = []
 

@@ -1,42 +1,46 @@
-print("\n\n SCAN WS PORT 80 \n")
+import socket
 
-import requests
+def send_request(hosts, payload):
+    with open('hasil_websocket80.txt', 'w') as file:
+        for host in hosts:
+            try:
+                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                s.settimeout(2)
+                s.connect((host, 80))
 
-url = 'http://idray.jagoan.vip'
-timeout = 5 # Batas waktu tunggu dalam detik
+                request = f'HEAD / HTTP/1.1\r\nHost: idray.jagoan.vip\r\nUpgrade: websocket\r\n\r\n'
+                s.send(request.encode())
 
-# Baca file proxy
+                response = s.recv(4096)
+                response_decoded = response.decode()
+                status_line = response_decoded.split('\r\n')[0]
+                status_code = status_line.split()[1]
+
+                server_header = None
+                if 'Server: ' in response_decoded:
+                    server_header = response_decoded.split('Server: ')[1].split('\r\n')[0]
+
+                result = f'{host} - {status_code} - {server_header if server_header else "Unknown"}'
+                result2 = f'{host}'
+                print(result)
+
+                if status_code == '200' and server_header == 'cloudflare':
+                    file.write(result2 + '\n')
+
+                s.send(payload.encode())
+
+                s.close()
+            except socket.gaierror:
+                print(f'{host} - Invalid hostname')
+            except socket.timeout:
+                print(f'{host} - Connection timeout')
+
+hosts = []
+
 with open('hasil2_direct.txt', 'r') as file:
-    proxy_list = file.read().splitlines()
+    for line in file:
+        hosts.append(line.strip())
 
-headers = {
-    'Host': 'idray.jagoan.vip',
-    'Connection': 'Upgrade',
-    'User-Agent': '[ua]',
-    'Upgrade': 'websocket'
-}
+payload = 'payload data yang ingin dikirim'
 
-with open('hasil_websocket80.txt', 'w') as hasil_file:  # Buka file hasil
-    for proxy in proxy_list:
-        proxy_with_port = f'http://{proxy}:80'
-        proxy2 = f'{proxy}'
-        proxies = {
-            'http': proxy_with_port
-        }
-
-        try:
-            response = requests.head(url, proxies=proxies, headers=headers,  timeout=timeout)
-            if response.status_code == 200:
-                hasil = f'{proxy2} - Respon: {response.status_code}'
-                hasil2 = f'{proxy2}\n'
-                hasil_file.write(hasil2)
-                print(hasil)
-            else:
-                print(f'{proxy2}, Invalid respon')
-            # break  # Berhenti setelah mendapatkan respons yang berhasil
-        except requests.exceptions.RequestException as e:
-            print(f'{proxy2}: timeout')
-        except requests.exceptions.Timeout:
-            print(f'{proxy2}: timeout')
-        except requests.exceptions.ProxyError:
-            print(f'{proxy2}: not valid')
+send_request(hosts, payload)

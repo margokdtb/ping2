@@ -3,7 +3,7 @@ import re
 print("\n\n Silakan isi file sumber_pcapdroid.txt terlebih dahulu. \n\n")
 
 # Konfirmasi dari pengguna
-konfirmasi = input("Apakah Anda sudah mengisi file sumber_pcapdroid.txt? (y/n) ")
+konfirmasi = input("sudah mengisi file sumber_pcapdroid.txt? (y/n) ")
 
 if konfirmasi.lower() == 'y':
     # Membaca file input_lama.txt dan mengambil subdomain
@@ -15,7 +15,7 @@ if konfirmasi.lower() == 'y':
     unique_hosts = set(subdomains)
 
     # Menyimpan host yang unik dalam file subdomain.txt
-    with open('subdomain.txt', 'w') as file:
+    with open('subdomain2.txt', 'w') as file:
         for host in unique_hosts:
             file.write(host + '\n')
             

@@ -34,7 +34,7 @@ def run_file(file_number):
         
     elif file_number == 4:
         os.system("python3 ws80.py")
-        os.system("python3 wsssl.py")
+        
         
     elif file_number == 5:
         os.system("python3 sni1.py")

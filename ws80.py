@@ -1,3 +1,5 @@
+print("\n\n SCAN WS PORT 80 \n")
+
 import socket
 
 def send_request(hosts, payload):
@@ -44,3 +46,8 @@ with open('hasil2_direct.txt', 'r') as file:
 payload = 'payload data yang ingin dikirim'
 
 send_request(hosts, payload)
+
+
+# Cek port 443 
+import os
+os.system("python3 wsssl.py")

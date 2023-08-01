@@ -1,15 +1,33 @@
-Install termux 
+Download dan install termux 
+https://apkmody.io/apps/termux
+
 pkg update -y
 pkg upgrade -y
-pkg install git 
+pkg install git
+pkg install python -y
+pkg install python-pip -y
+pkg install ping3 
+pkg install tqdm
+pkg install bugscanner 
+pkg install loguru
+#pkg install golang
+pkg install multithreading
+termux-setup-storage
+#ijinkan mengakses folder
 
 #install menu
 cd /sdcard
 git clone https://github.com/margokdtb/ping2.git
 cd ping2
-pip3 install -r requirements.txt
+mkdir hasil
+mkdir subdomain
+mkdir sumber
+cd sumber
+touch sumber_host.txt
+touch sumber_pcapdroid.txt
+cd
 
-#install domain finder
+#install subfinder
 go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 
  
@@ -20,7 +38,6 @@ pip install -r requirements.txt
 cd
 
 # install bugscanner go
-pip install golang
 go install -v github.com/aztecrabbit/bugscanner-go@latest
 echo 'PATH="$PATH:$HOME/go/bin"' >> $HOME/.bashrc && source $HOME/.bashrc
 

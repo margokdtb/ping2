@@ -22,7 +22,7 @@ def send_request(hosts, payload):
                 if 'Server: ' in response_decoded:
                     server_header = response_decoded.split('Server: ')[1].split('\r\n')[0]
 
-                result = f'{host} - {status_code} - {server_header if server_header else "Unknown"}'
+                result = f'{status_code} - {server_header if server_header else "Unknown"} - {host} '
                 result2 = f'{host}'
                 print(result)
 

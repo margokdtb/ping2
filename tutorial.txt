@@ -1,44 +1,32 @@
-#SUMBER
-1. Subfinder
-https://github.com/projectdiscovery/subfinder#installation
-2. bugscanner ws
-https://github.com/aztecrabbit/bugscanner-go
-3 bugsacanner ssl
-https://github.com/aztecrabbit/bugscanner
-
-#CARA INSTALL :
-jalankan termux 
-termux-setup-storage
-pkg update && pkg upgrade
-pkg install python
-pkg install python-pip bugscanner 
-pip install tqdm subprocess ping3
-pip install requests loguru multithreading
+Install termux 
+pkg update -y
+pkg upgrade -y
 pkg install git 
-pip install aiohttp
-pip install termcolor ssl
-pkg install golang
-pip install speedtest-cli
 
-git clone https://github.com/JagadBumi/subfinder
-cd subfinder
-mv subfinder ~/../usr/bin
-chmod +x ~/../usr/bin/subfinder
-go install -v github.com/aztecrabbit/bugscanner-go@latest
-clear 
-
-
-cd
+#install menu
 cd /sdcard
-git clone https://github.com/margokdtb/ping2
+git clone https://github.com/margokdtb/ping2.git
+cd ping2
+pip3 install -r requirements.txt
+
+#install domain finder
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+
+ 
+#install bugscanner
+git clone https://github.com/aztecrabbit/bugscanner
+cd bugscanner
+pip install -r requirements.txt
 cd
 
-MULAI
- 
-Run
+# install bugscanner go
+pip install golang
+go install -v github.com/aztecrabbit/bugscanner-go@latest
+echo 'PATH="$PATH:$HOME/go/bin"' >> $HOME/.bashrc && source $HOME/.bashrc
+
+
+
+Uses
 cd
-cd /sdcard/ping2/
+cd /sdcard/ping2
 python go.py
- 
- 
-

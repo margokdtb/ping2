@@ -1,0 +1,10 @@
+python 
+python-pip 
+git 
+ping3 
+tqdm
+bugscanner 
+loguru
+termux-setup-storage
+speedtest-cli
+golang

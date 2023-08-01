@@ -10,7 +10,7 @@ def send_request(hosts, payload):
                 s.settimeout(2)
                 s.connect((host, 80))
 
-                request = f'HEAD / HTTP/1.1\r\nHost: idray.jagoan.vip\r\nUpgrade: websocket\r\n\r\n'
+                request = f'HEAD / HTTP/1.1\r\nHost: api.myxl.xlaxiata.co.id\r\nUpgrade: websocket\r\n\r\n'
                 s.send(request.encode())
 
                 response = s.recv(4096)

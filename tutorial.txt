@@ -6,12 +6,17 @@ pkg upgrade -y
 pkg install git
 pkg install python -y
 pkg install python-pip -y
-pkg install ping3 
-pkg install tqdm
 pkg install bugscanner 
-pkg install loguru
-#pkg install golang
-pkg install multithreading
+pip install ping3 
+pip install tqdm
+pip install loguru
+pip install bugscanner 
+pip install multithreading
+pip install requests
+pip install bs4
+pip install speedtest-cli
+pkg install golang
+
 termux-setup-storage
 #ijinkan mengakses folder
 
@@ -40,7 +45,7 @@ cd
 # install bugscanner go
 go install -v github.com/aztecrabbit/bugscanner-go@latest
 echo 'PATH="$PATH:$HOME/go/bin"' >> $HOME/.bashrc && source $HOME/.bashrc
-
+clear
 
 
 Uses

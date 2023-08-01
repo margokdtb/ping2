@@ -22,6 +22,7 @@ def display_menu():
     print("8. Host Terkait (Koneksi Internet) ")
     print("9. Ping Host (isi sumber_host.txt) ")
     print("10. Speedtest ")
+    print("11. Ip Saya")
     print("0. Keluar")
 
 def run_file(file_number):
@@ -52,7 +53,9 @@ def run_file(file_number):
         os.system("python3 ping_server.py")                  
     elif file_number == 10:
         os.system("python3 speedtest.py")                  
-             
+    elif file_number == 11:
+        os.system("python3 ipsaya.py")                  
+         
     elif file_number == 0:
         return
     else:

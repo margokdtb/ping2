@@ -31,7 +31,7 @@ def main():
 
         sorted_results = sorted(sorted_results, key=lambda x: x[1])
 
-        with open("hasil_cdnssl443_ping.txt", "w") as output_file:
+        with open("hasil/hasil_cdnssl443_ping.txt", "w") as output_file:
             for result in sorted_results:
                 host, response_time = result
                 output_file.write(f" {response_time:.2f}s - {host}\n")
@@ -40,4 +40,4 @@ def main():
 if __name__ == "__main__":
     main()
    
-print("\n\n Proses Selesai \n Hasil disimpan di file hasil_cdnssl_ping.txt \n")
+print("\n\n Proses Selesai \n Hasil disimpan di hasil_cdnssl_ping.txt \n")

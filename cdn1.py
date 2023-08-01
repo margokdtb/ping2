@@ -31,7 +31,7 @@ def check_ssl_cdn(host):
         return ""
 
 # List host yang akan diperiksa
-with open('hasil_websocket80.txt', 'r') as file:
+with open('hasil2_direct.txt', 'r') as file:
     hosts = file.read().splitlines()
 
 # Memanggil fungsi untuk memeriksa setiap host secara paralel dengan multithreading

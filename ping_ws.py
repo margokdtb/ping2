@@ -3,7 +3,7 @@ import ping3
 import concurrent.futures
 from tqdm import tqdm
 
-print("\n\n  ")
+print("\n ")
 
 def ping_host(host):
     try:
@@ -40,4 +40,4 @@ def main():
 if __name__ == "__main__":
     main()
    
-print("\n\nHasil telah disimpan di file hasil_websocket80_ping.txt \n")
+#print("\n\nHasil telah disimpan di file hasil_websocket80_ping.txt \n")

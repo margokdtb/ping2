@@ -18,6 +18,7 @@ pkg install git
 pip install aiohttp
 pip install termcolor ssl
 pkg install golang
+pip install speedtest-cli
 
 git clone https://github.com/JagadBumi/subfinder
 cd subfinder

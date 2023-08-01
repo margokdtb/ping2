@@ -9,7 +9,7 @@ import os
 def display_menu():
     print("Menu:")
     print("1. Cari Sub Domain (Koneksi Internet) ")
-    print("2. Pilih File ")
+    print("2. Arsip File ")
     print("3. Cek Ws (Koneksi Bug) ")
 
     print("4. Cek port 80 dan 443")
@@ -17,11 +17,11 @@ def display_menu():
     print("5. Cek SNI  ")
     print("6. Ping SNI  ")
     
-    print("7. Sumber PCAPdroid (isi sumber_pcapdroid.txt) ")
-    print("8. Sumber KNOCK (isi sumber_knock.txt) ")
-    print("9. Host Terkait (Koneksi Internet) ")
-    print("10. Ping Host (isi sumber_host.txt) ")
+    print("7. Sumber Lain/PcapDroid (sumber_pcapdroid.txt) ")
     
+    print("8. Host Terkait (Koneksi Internet) ")
+    print("9. Ping Host (isi sumber_host.txt) ")
+    print("10. Speedtest ")
     print("0. Keluar")
 
 def run_file(file_number):
@@ -42,16 +42,17 @@ def run_file(file_number):
         os.system("python3 sni2.py")
        
     elif file_number == 7:
-        os.system("python3 datalama.py")    
+        os.system("python3 sumberlain.py")    
         
-    elif file_number == 8:
-        os.system("python3 sumberlain.py")   
  
+ 
+    elif file_number == 8:
+        os.system("python3 hostterkait.py")    
     elif file_number == 9:
-        os.system("python3 host_terkait.py")    
-    elif file_number == 10:
         os.system("python3 ping_server.py")                  
-        
+    elif file_number == 10:
+        os.system("python3 speedtest.py")                  
+             
     elif file_number == 0:
         return
     else:

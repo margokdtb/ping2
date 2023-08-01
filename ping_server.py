@@ -15,7 +15,7 @@ def ping_host(host):
     return (host, response_time)
 
 def main():
-    with open("sumber_host.txt", "r") as file:
+    with open("sumber/sumber_host.txt", "r") as file:
         host_list = file.read().splitlines()
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -31,7 +31,7 @@ def main():
 
         sorted_results = sorted(sorted_results, key=lambda x: x[1])
 
-        with open("hasil_host_ping.txt", "w") as output_file:
+        with open("hasil/hasil_host_ping.txt", "w") as output_file:
             for result in sorted_results:
                 host, response_time = result
                 output_file.write(f"{host} : {response_time:.2f} s\n")

@@ -33,8 +33,8 @@ def main():
         with open("hasil/hasil5_sni_ping.txt", "w") as output_file:
             for result in sorted_results:
                 host, response_time = result
-                output_file.write(f"{host} : {response_time:.2f} s\n")
-                print(f"{host} -  Time: {response_time:.2f} s")
+                output_file.write(f"Time: {response_time:.2f} s - {host} \n")
+                print(f"Time: {response_time:.2f} s - {host}")
 
 if __name__ == "__main__":
     main()

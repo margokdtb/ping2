@@ -1,3 +1,5 @@
+print("\n\n CEK HTTP RESPON\n")
+
 import requests
 
 url = input('Masukkan URL: ')

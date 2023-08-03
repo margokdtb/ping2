@@ -2,7 +2,7 @@ import requests
 
 # Fungsi untuk mendapatkan alamat IP dari jaringan saat ini
 def get_ip_address():
-    url = "http://api.ipify.org"
+    url = "http://ifconfig.me/ip"
     try:
         response = requests.get(url)
         response.raise_for_status()  # memunculkan exception jika terjadi kesalahan

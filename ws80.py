@@ -1,53 +1,69 @@
 print("\n\n SCAN WS PORT 80 \n")
 
+#cek data unik dulu
+ # Membaca file subdomain2.txt
+with open("hasil2_direct.txt", "r") as file:
+    data = file.readlines()
+
+# Menghapus karakter baris baru (\n) dari setiap baris
+data = [line.strip() for line in data]
+
+# Menghapus data duplikat
+data_uniq = list(set(data))
+
+# Menyimpan hasil ke file subdomain.txt
+with open("hasil2_direct.txt", "w") as file:
+    for item in data_uniq:
+        file.write(item + "\n")
+       # print(item)
+        
+#end cek data unik        
+        
 import socket
+import time
 
-def send_request(hosts, payload):
-    with open('hasil_websocket80.txt', 'w') as file:
-        for host in hosts:
-            try:
-                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                s.settimeout(2)
-                s.connect((host, 80))
+host = "id4ray.jagoan.vip"
+port = 80
+payload = b'HEAD / HTTP/1.1\r\nHost: id4ray.jagoan.vip\r\nUpgrade: websocket\r\n\r\n'
+timeout = 2
 
-                request = f'HEAD / HTTP/1.1\r\nHost: api.myxl.xlaxiata.co.id\r\nUpgrade: websocket\r\n\r\n'
-                s.send(request.encode())
+with open("hasil2_direct.txt", "r") as file:
+    proxy_servers = file.read().splitlines()
+      
+with open("hasil_websocket80.txt", "w") as file:
+    for proxy_server in proxy_servers:
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(timeout)  # Set timeout to 5 seconds
+            sock.connect((proxy_server, port))
 
-                response = s.recv(4096)
-                response_decoded = response.decode()
-                status_line = response_decoded.split('\r\n')[0]
-                status_code = status_line.split()[1]
+            sock.sendall(payload)
 
-                server_header = None
-                if 'Server: ' in response_decoded:
-                    server_header = response_decoded.split('Server: ')[1].split('\r\n')[0]
+            response = sock.recv(4096)
+            if response:
+                status_line = response.split(b'\r\n')[0]
+                status_code = status_line.split(b' ')[1]
 
-                result = f'{status_code} - {server_header if server_header else "Unknown"} - {host} '
-                result2 = f'{host}'
-                print(result)
+                print("Status Code:", status_code.decode('latin-1') + " - " + proxy_server)
 
-                if status_code == '200' and server_header == 'cloudflare':
-                    file.write(result2 + '\n')
+                if status_code == b'200':
+                    file.write(proxy_server + "\n")
 
-                #s.send(payload.encode())
+            sock.close()
 
-                s.close()
-            except socket.gaierror:
-                print(f'{host} - Invalid hostname')
-            except socket.timeout:
-                print(f'{host} - timeout')
+        except socket.gaierror:
+            print("Error connecting - ", proxy_server)
 
-hosts = []
-
-with open('hasil2_direct.txt', 'r') as file:
-    for line in file:
-        hosts.append(line.strip())
-
-payload = 'payload data yang ingin dikirim'
-
-send_request(hosts, payload)
-
-
+        except socket.timeout:
+            print("Timeout - ", proxy_server)
+        
+        except socket.error as e:
+            print("Network error:", str(e))
+        
+        #time.sleep(5)  # Delay 5 seconds before the next request
+       
+      
+      
 # Cek port 443 
 import os
 os.system("python3 wsssl.py")

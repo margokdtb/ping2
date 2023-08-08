@@ -1,99 +1,73 @@
 import socket
 import ssl
-from urllib.request import Request, ProxyHandler, build_opener, install_opener
+import warnings
+import time
 
-# Informasi proxy
-proxy_host = "ssl-tr1.hostip.co"
-proxy_port = 443
-proxy_username = "fastssh.com-niken30"
-proxy_password = "123"
+# Mengabaikan peringatan DeprecationWarning
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-# List server_hostname yang akan dihubungi
-server_hostnames = []
+# Membuat objek SSLContext
+context = ssl.SSLContext(ssl.PROTOCOL_TLS)
 
-# Membaca server_hostname dari file hasil5_sni.txt
-with open("hasil/hasil5_sni.txt", "r") as f:
-    server_hostnames = [line.strip() for line in f]
+# Membuka file dan membaca daftar hostname
+with open("hasil/hasil5_sni.txt", "r") as file:
+    hostnames = file.readlines()
 
-# Membuat handler proxy
-proxy_handler = ProxyHandler({
-    'https': f"{proxy_username}:{proxy_password}@{proxy_host}:{proxy_port}"
-})
-opener = build_opener(proxy_handler)
-install_opener(opener)
+# Menghapus karakter baris baru dari setiap hostname
+hostnames = [hostname.strip() for hostname in hostnames]
 
-def connect_server(hostname):
+# Membuka file untuk menyimpan respon
+file_respon = open("temp_file.txt", "w")
+
+for hostname in hostnames:
+    # Membuka koneksi socket ke ssl-tr1.hostip.co pada port 443
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.settimeout(3)  # Mengatur waktu tunggu menjadi 3 detik
     try:
-        # Membuat socket
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        
-        # Menghubungkan ke server dengan menggunakan proxy HTTPS
-        sock.connect((proxy_host, proxy_port))
+        sock.connect(("ssl-tr1.hostip.co", 443))
+    except socket.timeout:
+        print("Hostname tidak merespon dalam waktu 3 detik")
+        continue
 
-        # Menginisialisasi SSL context
-        context = ssl.create_default_context()
-        context.check_hostname = False
-        context.verify_mode = ssl.CERT_NONE
+    # Melakukan handshake SSL
+    try:
+        ssl_sock = context.wrap_socket(sock, server_hostname=hostname)
+    except (ssl.SSLError, socket.timeout) as e:
+        print("not respon")
+        #print("Handshake SSL gagal:", str(e))
+        sock.close()
+        continue
 
-        # Membuat koneksi SSL
-        secure_sock = context.wrap_socket(sock, server_hostname=hostname)
+    # print("[05:57:59] Memulai layanan SSH")
 
-        # Mengirim permintaan HTTP
-        secure_sock.send(b"GET / HTTP/1.0\r\nHost: {proxy_host}\r\n\r\n")
+    # Mengirim permintaan HTTP untuk melakukan koneksi
+    request = "HEAD kh.google.com:443 HTTP/1.1\r\nHost: kh.google.com\r\n\r\n".encode("utf-8")
+    ssl_sock.write(request)
 
-        # Menerima respons
-        response = secure_sock.recv(4096)
-        response2 = response.decode('utf-8', errors='ignore'). split(' ', 2)[0] 
+    # Menerima respon HTTP
+    try:
+        response = ssl_sock.read()
+    except socket.timeout:
+        print("Permintaan HTTP tidak berhasil diterima")
+        ssl_sock.close()
+        sock.close()
+        continue
 
-        # Mengembalikan informasi koneksi jika versi TLS adalah TLSv1.3
-        if "ssh" in response2:
-            return f"ssh OK {secure_sock.version()} - {secure_sock.server_hostname}"
-        #else:
-            #return f"{response.decode('utf-8', errors='ignore').split(' ', 2)[0]} {secure_sock.version()} - {secure_sock.server_hostname}"
-        
-    except Exception as e:
-        # Mengembalikan pesan error
-        return f"Error: {e}"
+    if response:
+        print("Versi:", ssl_sock.version(), " - ", ssl_sock.server_hostname)
+        file_respon.write(f"{hostname}\n")
+        file_respon.flush()
+    else:
+        print("Koneksi tidak valid")
 
-    finally:
-        # Menutup koneksi socket
-        if 'secure_sock' in locals():
-            secure_sock.close()
-        if 'sock' in locals():
-            sock.close()
+    # Menutup koneksi
+    ssl_sock.close()
+    sock.close()
 
-# List untuk menampung hasil
-results = []
-
-# Menghubungkan ke setiap server_hostname
-for hostname in server_hostnames:
-    result = connect_server(hostname)
-    if result:
-        results.append(result)
-        print(result)
-
-# Menyimpan hasil ke dalam file
-with open("temp_file2.txt", "w") as f:
-    for result in results:
-        f.write(f"{result}\n")
+# Menutup file respon
+file_respon.close()
             
-#mecari host unik
-file_path = 'temp_file2.txt'
-temp_file_path = 'temp_file.txt'
-file_path3 = 'hasil/hasil5_sni.txt'
 
-with open(file_path, 'r') as file:
-    lines = file.readlines()
-
-updated_lines = [line.replace('ssh OK TLSv1.3 - ', '') for line in lines]
-
-with open(temp_file_path, 'w') as file:
-    file.writelines(updated_lines)
-
-import os
-os.replace(temp_file_path, file_path3)
-
-#print('Data berhasil diperbarui dan disimpan kembali ke file yang sama.')
             
 #CEK PING
 import ping3
@@ -112,7 +86,7 @@ def ping_host(host):
     return (host, response_time)
 
 def main():
-    with open("hasil/hasil5_sni.txt", "r") as file:
+    with open("temp_file.txt", "r") as file:
         host_list = file.read().splitlines()
 
     with concurrent.futures.ThreadPoolExecutor() as executor:

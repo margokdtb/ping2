@@ -17,7 +17,7 @@ def display_menu():
     print("5. Cek SNI  ")
     print("6. Ping SNI  ")
     
-    print("7. Sumber Lain/PcapDroid (sumber_pcapdroid.txt) ")
+    print("7. Sumber Lain(sumber_lain.txt) ")
     
     print("8. Host Terkait (Koneksi Internet) ")
     print("9. Ping Host (isi sumber_host.txt) ")
@@ -25,6 +25,7 @@ def display_menu():
     print("11. Ip Saya")
     print("12. HTTP Respon")
     print("13. Cek Respon Proxy")
+    print("14. Sumber PCAPdroid (sumber_pcapdroid.txt)")
     
     print("0. Keluar")
 
@@ -61,7 +62,9 @@ def run_file(file_number):
     elif file_number == 12:
         os.system("python3 httprespon.py")              
     elif file_number == 13:
-        os.system("python3 proxy.py")              
+        os.system("python3 proxy.py")   
+    elif file_number == 14:
+        os.system("python3 sumber_pcapdroid.py")                         
  
     elif file_number == 0:
         return

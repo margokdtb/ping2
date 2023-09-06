@@ -11,7 +11,7 @@ def extract_host_ip(data):
                 host_ip_list.append(line)
     return host_ip_list
 
-filename = "sumber/sumber_pcapdroid.txt"
+filename = "sumber/sumber_lain.txt"
 output_filename = "subdomain.txt"
 
 with open(filename, "r", encoding="latin-1") as file:

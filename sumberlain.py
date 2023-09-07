@@ -1,24 +1,17 @@
-def extract_host_ip(data):
-    host_ip_list = []
-    lines = data.split('\n')
-    for line in lines:
-        line = line.strip()
-        if line:
-            if ' - ' in line:
-                host_ip = line.split(' - ')[-1].strip()
-                host_ip_list.append(host_ip)
-            elif '.' in line:
-                host_ip_list.append(line)
-    return host_ip_list
+import re
 
-filename = "sumber/sumber_lain.txt"
-output_filename = "subdomain.txt"
-
-with open(filename, "r", encoding="latin-1") as file:
+with open('sumber/sumber_lain.txt', 'r') as file:
     data = file.read()
+    subdomains = re.findall(r'\b(?:[A-Za-z0-9]+\.)+[A-Za-z]{2,}\b', data)
+    ips = re.findall(r'\b(?:\d{1,3}\.){3}\d{1,3}\b', data)
 
-host_ip_list = extract_host_ip(data)
+with open('subdomain.txt', 'w') as output_file:
+    for subdomain in subdomains:
+        output_file.write(f"{subdomain}\n")
+        print(f"{subdomain}")
 
-with open(output_filename, "w") as file:
-    for host_ip in host_ip_list:
-        file.write(host_ip + "\n")
+    for ip in ips:
+         output_file.write(f"{ip}\n")
+         print(f"{ip}")
+
+print("Hasil telah disimpan ke file subdomain.txt")

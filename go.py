@@ -28,7 +28,8 @@ def display_menu():
     print("14. HTTP Respon")
     print("15. Cek Respon Proxy")
     print("16. Sumber PCAPdroid (sumber_pcapdroid.txt)")
-    
+    print("17. Cek CDN SSL (subdomain.txt.txt)")
+    print("18. Cek SNI V2 (subdomain.txt.txt)")
     print("0. Keluar")
 
 def run_file(file_number):
@@ -72,7 +73,13 @@ def run_file(file_number):
     elif file_number == 15:
         os.system("python3 proxy.py")   
     elif file_number == 16:
-        os.system("python3 sumber_pcapdroid.py")                         
+        os.system("python3 sumber_pcapdroid.py")          
+
+    elif file_number == 17:
+        os.system("python3 cdnssl.py")      
+        
+    elif file_number == 18:
+        os.system("python3 sniv2.py")       
  
     elif file_number == 0:
         return

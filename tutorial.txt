@@ -10,7 +10,7 @@ pkg install bugscanner
 pip install ping3 
 pip install tqdm
 pip install loguru
-pip install bugscanner 
+ 
 pip install multithreading
 pip install requests
 pip install bs4
@@ -37,6 +37,8 @@ go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 
  
 #install bugscanner
+cd /sdcard/ping2
+
 git clone https://github.com/aztecrabbit/bugscanner
 cd bugscanner
 pip install -r requirements.txt
